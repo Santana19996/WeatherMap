@@ -1,0 +1,2 @@
+const mapBoxAPIKey = "pk.eyJ1Ijoic2FudGFuYTE5OTYiLCJhIjoiY2tyNTFzNTc1MzFhMzJ2bWZ5bzIzcW53byJ9.tCbfOnMVhIjUop5OPRPvtQ"
+const OpenWeatherAPIKey = `e7f435bc89a4b4ecc1f8d7a1c24ca8f8`
