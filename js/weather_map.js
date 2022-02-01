@@ -5,8 +5,6 @@ $(document).ready(function () {
     updateWeather(mapLat, mapLong);
 
 
-
-
     function updateWeather(latitude, longitude) {
         var getFiveDayForecast = $.get("https://api.openweathermap.org/data/2.5/onecall", {
             APPID: OpenWeatherAPIKey,
@@ -40,20 +38,20 @@ $(document).ready(function () {
         date = date[0];
 
 
-        weatherCards += "<div class='d-inline-block'>"
-        weatherCards += "<div class='card m-2' style='width: 18rem;'>";
-        weatherCards += "<div class='card-header text-center'>" + date + "</div>";
-        weatherCards += "<ul class='list-group list-group-flush'>";
-        weatherCards += "<li class='list-group-item text-center'>";
-        weatherCards += "<strong>" + weatherConditions.temp.max + "&#8457; / " + weatherConditions.temp.min + " &#8457;" + "</strong><br>";
-        weatherCards += `<img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>`;
-        weatherCards += "<li class='list-group-item'>Description: <strong>" + weatherConditions.weather[0].description + "</strong><br><br>";
-        weatherCards += "Humidity: <strong>" + weatherConditions.humidity + "</strong></li>";
-        weatherCards += "<li class='list-group-item'>Wind: <strong>" + weatherConditions.wind_speed + "</strong></li>";
-        weatherCards += "<li class='list-group-item'>Pressure: <strong>" + weatherConditions.pressure + "</strong></li>";
-        weatherCards += "</ul>";
-        weatherCards += "</div>";
-        weatherCards += "</div>";
+        weatherCards += `<div class='d-inline-block'>
+         <div class='card m-2' style='width: 18rem;'>
+         <div class='card-header text-center'> ${date} </div>
+         <ul class='list-group list-group-flush'>
+         <li class='list-group-item text-center'>
+         <strong>  ${weatherConditions.temp.max}  &#8457; /   ${weatherConditions.temp.min}   &#8457;</strong><br>
+         <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
+         <li class='list-group-item'>Description: <strong> ${weatherConditions.weather[0].description}</strong><br><br>
+         Humidity: <strong>${weatherConditions.humidity}  </strong></li>
+         <li class='list-group-item'>Wind: <strong> ${weatherConditions.wind_speed} </strong></li>
+         <li class='list-group-item'>Pressure: <strong>  ${weatherConditions.pressure}  </strong></li>
+         </ul>
+         </div>
+         </div>`
 
 
         $(".weather-card-container").append(weatherCards);
